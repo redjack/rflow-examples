@@ -1,0 +1,6 @@
+# A sample Gemfile
+source "https://rubygems.org"
+
+gem 'rflow', '>= 1.0.0a1'
+gem 'rflow-components-http', '>= 1.0.0a2'
+gem 'rflow-components-file', '>= 1.0.0a1'
