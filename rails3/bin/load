@@ -1,0 +1,1 @@
+bundle exec rflow load -c config/config.rb -d config/config.sqlite3 -e config/extensions.rb
