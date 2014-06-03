@@ -1,7 +1,7 @@
 RFlow::Configuration::RubyDSL.configure do |config|
-  config.setting('rflow.log_level', 'DEBUG')
-  config.setting('rflow.application_directory_path', '..')
-  config.setting('rflow.application_name', 'rails3app')
+  config.setting 'rflow.log_level', 'DEBUG'
+  config.setting 'rflow.application_directory_path', '..'
+  config.setting 'rflow.application_name', 'rails3app'
 
   # Set up the necessary components
   config.component 'http_server', 'RFlow::Components::HTTP::Server'
