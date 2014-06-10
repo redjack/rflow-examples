@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'rflow', '>= 1.0.0a1'
 gem 'rflow-components-http', '>= 1.0.0a2'
 gem 'jquery-rails'
+gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
