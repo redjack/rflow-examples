@@ -4,7 +4,9 @@ RFlow::Configuration::RubyDSL.configure do |config|
   config.setting 'rflow.application_name', 'rails3app'
 
   # Set up the necessary components
-  config.component 'http_server', 'RFlow::Components::HTTP::Server'
+  config.component 'http_server', 'RFlow::Components::HTTP::Server', {
+    'listen' => '0.0.0.0',
+  }
 
   config.shard 'rails3', :process => 10 do |shard|
     shard.component 'rails3_app', 'RFlow::Components::Rails3App'
