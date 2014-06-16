@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.18'
 gem 'sqlite3'
-gem 'rflow', '>= 1.0.0a1'
-gem 'rflow-components-http', '>= 1.0.0a2'
+gem 'rflow', '>= 1.0.0a3'
+gem 'rflow-components-http', '>= 1.0.0a4'
 gem 'jquery-rails'
 gem 'therubyracer'
 
