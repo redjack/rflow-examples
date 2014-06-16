@@ -39,6 +39,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    diff-lcs (1.2.5)
     em-zeromq (0.5.0)
       eventmachine (>= 1.0.0)
       ffi (>= 1.0.0)
@@ -103,6 +104,22 @@ GEM
     rflow-components-http (1.0.0a4)
       eventmachine_httpserver_update (~> 0.2.1)
       rflow (~> 1.0.0a3)
+    rspec-core (3.0.1)
+      rspec-support (~> 3.0.0)
+    rspec-expectations (3.0.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.0.0)
+    rspec-mocks (3.0.1)
+      rspec-support (~> 3.0.0)
+    rspec-rails (3.0.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
+      rspec-support (~> 3.0.0)
+    rspec-support (3.0.0)
     sass (3.3.8)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -138,6 +155,7 @@ DEPENDENCIES
   rails (= 3.2.18)
   rflow (>= 1.0.0a3)
   rflow-components-http (>= 1.0.0a4)
+  rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer

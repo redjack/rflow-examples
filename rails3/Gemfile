@@ -6,6 +6,7 @@ gem 'rflow', '>= 1.0.0a3'
 gem 'rflow-components-http', '>= 1.0.0a4'
 gem 'jquery-rails'
 gem 'therubyracer'
+gem 'rspec-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
