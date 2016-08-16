@@ -1,0 +1,3 @@
+http_logger/Gemfile.lock
+http_logger/config.sqlite
+http_logger/log/httplogger.log
