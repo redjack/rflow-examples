@@ -14,7 +14,7 @@ class RFlow
         content_port.send_message(
           RFlow::Message.new('RFlow::Message::Data::Raw').tap do |m|
             m.provenance = message.provenance
-            m.data.raw = message.data.content
+            m.data.raw = message.data.content || ''
           end)
       end
     end
@@ -29,7 +29,7 @@ class RFlow
 
         response_port.send_message(RFlow::Message.new('RFlow::Message::Data::HTTP::Response').tap do |m|
           m.provenance = message.provenance
-          m.data.content = message.data.raw
+          m.data.content = message.data.raw || ''
         end)
       end
     end
@@ -60,7 +60,7 @@ class RFlow
 
         response_port.send_message(RFlow::Message.new('RFlow::Message::Data::Raw').tap do |m|
           m.provenance = message.provenance
-          m.data.raw = response.data
+          m.data.raw = response.data || ''
         end)
 
         @response_counter += 1
