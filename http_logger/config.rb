@@ -9,7 +9,7 @@ RFlow::Configuration::RubyDSL.configure do |config|
   config.component 'http_to_raw', 'RFlow::Components::HTTPToRaw'
   config.component 'http_log', 'RFlow::Components::File::OutputRawToFiles', {
     'directory_path' => './output/',
-    'file_name_prefix' => 'o.',
+    'file_name_prefix' => 'o',
     'file_name_suffix' => '.http',
   }
 
