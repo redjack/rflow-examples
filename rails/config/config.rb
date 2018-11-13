@@ -1,7 +1,7 @@
 RFlow::Configuration::RubyDSL.configure do |config|
   config.setting 'rflow.log_level', 'DEBUG'
   config.setting 'rflow.application_directory_path', '..'
-  config.setting 'rflow.application_name', 'rails3app'
+  config.setting 'rflow.application_name', 'railsapp'
 
   # Set up the necessary components
   config.component 'http_server', 'RFlow::Components::HTTP::Server', {
@@ -10,13 +10,13 @@ RFlow::Configuration::RubyDSL.configure do |config|
 
   if true
     # Handle HTTP messages directly like Rails does
-    config.shard 'rails3', :process => 10 do |shard|
-      shard.component 'rails3_app', 'RFlow::Components::Rails3App'
+    config.shard 'rails', :process => 10 do |shard|
+      shard.component 'rails_app', 'RFlow::Components::Rails3App'
     end
 
     # Server -> Responder -> Server - send the http responses
-    config.connect 'http_server#request_port' => 'rails3_app#request_port'
-    config.connect 'rails3_app#response_port' => 'http_server#response_port'
+    config.connect 'http_server#request_port' => 'rails_app#request_port'
+    config.connect 'rails_app#response_port' => 'http_server#response_port'
   else
     # A more complicated topology as a many-to-many example
     config.shard 'envelope', :process => 3 do |shard|
