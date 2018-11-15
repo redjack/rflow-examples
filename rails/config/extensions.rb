@@ -79,26 +79,31 @@ class RFlow
       end
 
       def process_message(input_port, input_port_key, connection, message)
-        return unless message.data_type_name == 'RFlow::Message::Data::HTTP::Request'
+        begin
+          Log4r::MDC.put('provenance', "[#{message.provenance.first.context}] ") if message.provenance.first
+          return unless message.data_type_name == 'RFlow::Message::Data::HTTP::Request'
 
-        RFlow.logger.debug "Received HTTP request"
+          RFlow.logger.debug "Received HTTP request"
 
-        Request.new(:data => message.data.content).tap do |r|
-          RFlow.logger.debug "Response logged '#{r.data}'"
-          r.save!
+          Request.new(:data => message.data.content).tap do |r|
+            RFlow.logger.debug "Response logged '#{r.data}'"
+            r.save!
+          end
+
+          response = Response.new(:data => "PID #{$$} Response #{response_counter}").tap do |r|
+            RFlow.logger.debug "Responding with '#{r.data}'"
+            r.save!
+          end
+
+          response_port.send_message(RFlow::Message.new('RFlow::Message::Data::HTTP::Response').tap do |m|
+            m.provenance = message.provenance
+            m.data.content = response.data
+          end)
+
+          @response_counter += 1
+        ensure
+          Log4r::MDC.remove('provenance')
         end
-
-        response = Response.new(:data => "PID #{$$} Response #{response_counter}").tap do |r|
-          RFlow.logger.debug "Responding with '#{r.data}'"
-          r.save!
-        end
-
-        response_port.send_message(RFlow::Message.new('RFlow::Message::Data::HTTP::Response').tap do |m|
-          m.provenance = message.provenance
-          m.data.content = response.data
-        end)
-
-        @response_counter += 1
       end
     end
   end

@@ -2,6 +2,7 @@ RFlow::Configuration::RubyDSL.configure do |config|
   config.setting 'rflow.log_level', 'DEBUG'
   config.setting 'rflow.application_directory_path', '..'
   config.setting 'rflow.application_name', 'railsapp'
+  config.setting 'rflow.log_pattern_format', '%-5l [%d] %x (%-5p) %X{provenance}- %M'
 
   # Set up the necessary components
   config.component 'http_server', 'RFlow::Components::HTTP::Server', {
