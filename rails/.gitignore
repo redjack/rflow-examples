@@ -4,3 +4,4 @@
 /log/*.log
 /tmp
 *.pid
+.byebug_history

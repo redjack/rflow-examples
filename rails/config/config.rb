@@ -11,7 +11,7 @@ RFlow::Configuration::RubyDSL.configure do |config|
 
   if true
     # Handle HTTP messages directly like Rails does
-    config.shard 'rails', :process => 10 do |shard|
+    config.shard 'rails', :process => 2 do |shard|
       shard.component 'rails_app', 'RFlow::Components::Rails3App'
     end
 

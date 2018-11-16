@@ -95,6 +95,15 @@ class RFlow
             r.save!
           end
 
+          if false
+            # Once the debug point has been hit once, the process will be paused at the breakpoint.
+            # You have to make sure you use a different port per process, which is also why we can't
+            # open the debugger prior to the fork and run. You can connect by using byebug -R localhost:<port>.
+            # If you plan on hitting the breakpoint again, leave it open; weird things happen when you close it.
+            RFlow.logger.info "Opening debugger on port #{8989 + worker.index}"
+            remote_byebug 'localhost', 8989 + worker.index
+          end
+
           response_port.send_message(RFlow::Message.new('RFlow::Message::Data::HTTP::Response').tap do |m|
             m.provenance = message.provenance
             m.data.content = response.data
