@@ -50,7 +50,7 @@ GEM
     rflow-components-http (1.1.1)
       eventmachine_httpserver_update (~> 0.2, >= 0.2.1)
       rflow (~> 1.0)
-    sqlite3 (1.4.1)
+    sqlite3 (1.3.13)
     sys-filesystem (1.2.0)
       ffi
     thread_safe (0.3.6)
@@ -65,6 +65,7 @@ DEPENDENCIES
   rflow (>= 1.3.0a1)
   rflow-components-file
   rflow-components-http
+  sqlite3 (< 1.4.0)
 
 BUNDLED WITH
    1.17.3
