@@ -1,3 +1,5 @@
 config.sqlite
 log/httplogger.log
 log/startup.log
+output/
+run/*
